@@ -1,27 +1,11 @@
-# React + TypeScript + Vite
+### Assumptions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is solution almost ready to scale.
+It has reusable and testable code, UI and business logic is separate what gives you change UI without any logic changes. Functions follow separation of concern. There is API layer which gives you clarification where requests come from and you can handle anything you need there
 
-Currently, two official plugins are available:
+### Pitfalls
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Lack of income decimals values hence basic operation with currency will be incorrect because of js has issues with precision
+2. When we work with currency better to use bignumber.js especially with crypto currency
+3. Because of data a bit incorrect, column creation in Summary table has keys with spaces and some symbols can be incorrect of smth else, you should pay attention on it
+4. Pay attention that withdraw can't be if balance is negative and it should be handled but I've followed example

@@ -30,8 +30,7 @@ export function arrayToSum(source: Transaction[], rate?: number | null) {
     }
     if (tx.type === "withdrawal" && tx.status === "completed") {
       res[completedWithdrawals] = res[completedWithdrawals] + 1;
-      res[balanceInTokens] =
-        res[balanceInTokens] === 0 ? 0 : res[balanceInTokens] - tx.amount;
+      res[balanceInTokens] = res[balanceInTokens] - tx.amount;
     }
     if (tx.type === "withdrawal" && tx.status === "pending") {
       res[pendingWithdrawals] = res[pendingWithdrawals] + 1;
